@@ -1,0 +1,42 @@
+**********************************************************************************************
+These regression tests must be performed prior to releasing the site. They are broken down
+into sections.
+**********************************************************************************************
+Section 1: Admin Page
+  Test: No display glitches
+    - Verify the page is rendered correctly, there should be no obvious glitches or mis-
+      alignments.
+
+  Test: Amdin page must be hidden to non-Admin users
+    - Log into the site as normal user
+    - Verify Admin page is not linked, nor is it accessible via direct url
+    - Log into the site as Admin user
+    - Access Admin page and then log out, or log in as normal user.
+
+  Test: Adding user stores the new user to datbase
+    - Add a test user to the database
+    - verify that it exists in the phppgadmin
+
+  Test: The user must have, at minimum, a first/last name, an employee nubmer, a department,
+      a job title, a username, a password, and a supervisor.
+    - try to create a user with no name
+    - try to create a user with no employee number
+    - try to create a user with no department
+    - try to create a user with no title
+    - try to create a user with no username
+    - try to create a user with no password
+    - try to create a user with no supervisor
+    - verify that no user is created.
+
+  Test: unique employee number
+    - try to create a user with a non-unique employee number
+    - verify the user is not created.
+
+  Test: Editing the user updates the database
+    - Edit a test user
+    - verify the data changes in the phppgadmin
+
+  Test: Deleting the user changes it's access level to 0
+    - Delete a test user
+    - verify the user no longer appears in the User list
+    - verify the user still exists in the phppgadmin, but has an access level of 0

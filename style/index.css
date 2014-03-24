@@ -1,0 +1,599 @@
+@font-face {
+	font-family: Source;
+	src: url('SourceSansPro-Regular.otf');
+}
+
+@font-face {
+	font-family: SourceBold;
+	src: url('SourceSansPro-Bold.otf');
+}
+
+@font-face {
+	font-family: Andada;
+	src: url('Andada-Regular.otf');
+}
+
+body {
+	font: 18px Andada, serif;
+	background-color: #f5f4fd;
+	background: #f5f4fd url('/img/sos.png') repeat;
+	position: relative;
+}
+a {
+	text-decoration: none;
+	color: #000;
+	transition: all 0.1s ease-in-out;
+}
+
+/*GRID*/
+.col {
+    border:0px solid rgba(0,0,0,0);
+    float:left;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    -moz-background-clip:padding-box !important;
+    -webkit-background-clip:padding-box !important;
+    background-clip:padding-box !important;
+/*    margin-left:1%;*/
+    padding:0 0.4%;
+}
+
+.row .col:first-child {
+    margin-left:0;
+}
+.span_1 {
+    width:0%;
+}
+.span_2 {
+    width:16.6666666667%;
+}
+.span_3 {
+    width:25%;
+}
+.span_4 {
+    width:33.3333333333%;
+}
+.span_5 {
+    width:41.6666666667%;
+}
+.span_6 {
+    width:50%;
+}
+.span_7 {
+    width:58.3333333333%;
+}
+.span_8 {
+    width:66.6666666666%;
+}
+.span_9 {
+    width:75%;
+}
+.span_10 {
+    width:83.3333333333%;
+}
+.span_11 {
+    width:91.6666666666%;
+}
+.span_12 {
+    width:100%;
+}
+.spacer.col {
+	height: 100px;
+	padding: 0;
+}
+@media only screen and (min-width: 1090px) {
+	.span_1 {
+	    width:8.33333333333%;
+	}
+	.spacer.col {
+	    padding: 0 0.4%;
+	}
+}
+
+a:hover,
+a:focus,
+a:active {
+	text-shadow: 1px 1px rgba(200,200,200,0.8);
+	outline: 1px;
+	-webkit-appearance: none;
+}
+a.noLink {
+	text-decoration: none;
+	text-shadow: none;
+	color: #000;
+}
+a.noLink:hover,
+a.noLink:focus,
+a.noLink:active {
+	text-decoration: none;
+	text-shadow: none;
+	color: #000;
+	outline: 0px;
+	-webkit-appearance: none;
+}
+a img{
+/*	border: none;*/
+}
+ul{
+	margin: 11px 0px;
+	padding: 0;
+	list-style: none;
+}
+li {
+	border-radius: 2px;
+	display: block;
+	padding: 1px;
+	margin: 1px;
+}
+section ul li.action {
+	transition: all 0.2s ease-in-out;
+        display: block;
+        padding-left: 3em;
+        padding-right: 5em;
+}
+section ul li.action:hover {
+	cursor: pointer;
+	background: rgba(230,230,230,1.0);
+	padding: 1px 25px;
+	box-shadow: 1px 1px 1px 0 rgba(230,230,230,0.8);
+}
+section ul li.action.newUser:hover {
+	background: rgba(240,180,180,0.7);
+}
+section#content #headerLinks ul {
+/*	padding-left: 255px;*/
+}
+section#content #headerLinks ul li{
+	display: inline;
+	margin: 45px;
+}
+#headerLinks div {
+	margin-left: auto;
+	margin-right: auto;
+}
+li a {
+	color: #000;
+	text-decoration: none;
+}
+div#wrapper {
+	position: relative;
+	top: 0;
+	background-color: #fff;
+	min-width: 970px;
+	border-radius: 15px;
+	box-shadow: 0px 0px 8px 0px rgba(0,0,180,0.8);
+}
+header#top {
+/*	width: 933px;*/
+	height: 110px;
+	margin: 4px;
+	padding: 8px;
+	position: relative;
+	top: 7px;
+	border-radius: 15px;
+	border: solid 1px;
+}
+#logo{
+	display: inline;
+}
+#top img{
+	display: inline;
+	margin: 15px;
+	opacity: 1.0;
+}
+#top img:hover {
+	opacity: 0.7;
+}
+#top nav {
+	display: inline;
+}
+#top nav ul {
+	position: absolute;
+	top: 40px;
+	display: inline;
+	list-style: none;
+	font: 22px SourceBold, Helvetica;
+}
+#top nav ul li {
+	display: inline;
+	margin: 5px;
+	padding: 4px;
+	border-radius: 4px;
+	transition: background 0.4s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+#top nav ul li:hover {
+	background: #ddd;
+	box-shadow: 2px 2px 2px 1px #eee;
+}
+#loginBox{
+	font: 14px Source, Helvetica, sans-serif;
+	height: 2em;
+	border: 1px solid black;
+	border-top: none;
+	border-right: none;
+	width: 42px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #eee;
+	border-top-right-radius: 15px;
+	cursor: default;
+}
+#loginBoxForm{
+	font: 14px Source, Helvetica, sans-serif;
+	height: 2em;
+	border: 1px solid black;
+	border-top: none;
+	border-right: none;
+	width: 385px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #eee;
+	border-top-right-radius: 15px;
+	visibility: hidden;
+	cursor: default;
+}
+#loginBoxForm fieldset {
+	border: none;
+	padding: 0.1em 1em;
+}
+.textField{
+	width: 110px;
+}
+.loginContent{
+	margin: 0 1.5em;
+	position: absolute;
+	top: 0.25em;
+	right: 0;
+	background: #eee;
+}
+.loginContent:hover {
+	font-family: SourceBold, Helvetica, sans-serif;
+}
+#loginLogout{
+	font-size: 12px;
+	opacity: 0.5;
+	transition: all 0.4s ease-in-out;
+}
+#loginLogout:hover {
+	opacity: 1;
+	text-decoration: underline;
+}
+#login{
+	position: absolute;
+	top: 0;
+	display: inline-block;
+}
+article {
+	margin: 15px 25px;
+	line-height: 1.6;
+	font-size: 14px;
+}
+section {
+	position: relative;
+}
+section#sections{
+	padding-top: 3px;
+	min-height: 739px;
+}
+section.thirds {
+	font-size: 14px;
+	margin: 4px 0;
+/*	padding: 10px;*/
+	border: 1px solid;
+	border-radius: 4px;
+	width: 100%;
+	min-height: 733px;
+	font-family: Source, Helvetica, sans-serif;
+	float: left;
+}
+section.twothirds {
+	font-size: 14px;
+	margin: 4px 0;
+/*	padding: 10px;*/
+	border: 1px solid;
+	border-radius: 4px;
+	width: 100%;
+	min-height: 733px;
+	font-family: Source, Helvetica, sans-serif;
+	float: left;
+}
+section.whole {
+	font-size: 14px;
+	margin-top: 4px;
+/*	padding: 10px;*/
+	border: 1px solid;
+	border-radius: 15px;
+	width: 100%;
+	min-height: 733px;
+	font-family: Source, Helvetica, sans-serif;
+}
+section.first {
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+section.middle {
+/*	width: 295px;*/
+}
+section.last {
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+section p {
+	font-size: 14px;
+	padding-left: 10px;
+}
+section p:first-of-type {
+	margin-top: 2.5em
+}
+section header {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	float: left;
+}
+section.thirds ul {
+	list-style-type: none;
+	position: relative;
+	top: 15px;
+	left: 10px;
+}
+#allUsers ul li {
+	width: 70%;
+}
+#editUser .userTitle {
+	padding: 7px;
+	margin: 3px;
+	width: 125px;
+	text-align: right;
+	display: inline-block;
+	text-decoration: underline;
+}
+#editUser .userValue {
+	display: inline-block;
+	padding: 4px;
+	margin: 0 0 0 10px;
+	min-width: 90px;
+	height: 1.5em;
+	border: 1px solid #fff;
+	transition: all 0.2s ease-in-out;
+}
+#editUser .userValue:active,
+#editUser .userValue:focus,
+#editUser .userValue:hover {
+	border: 1px solid #ddd;
+}
+#editUser .userValue.header {
+	margin: 0 ;
+	min-width: 10px;
+	border: 1px solid #fff;
+	text-decoration: underline;
+}
+#editUser .userValue.header:active,
+#editUser .userValue.header:focus,
+#editUser .userValue.header:hover {
+	border: 1px solid #ddd;
+}
+#editBox {
+	font: 14px Source, Helvetica, sans-serif;
+	height: 2em;
+	border: 1px solid black;
+	border-top: none;
+	border-right: none;
+	width: 162px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #eee;
+	border-top-right-radius: 15px;
+	cursor: default;
+}
+.editButton{
+	margin: 0 1.5em;
+	position: relative;
+	top: 0.25em;
+	right: 0;
+	background: #eee;
+}
+.editButton:hover {
+	font-family: SourceBold, Helvetica, sans-serif;
+}
+.filterSearch {
+	display: inline-block;
+	padding: 4px;
+	margin: 0 0 0 10px;
+	min-width: 90px;
+	height: 1.5em;
+	border: 1px solid #ddd;
+	transition: all 0.2s ease-in-out;
+}
+select.filterSearch{
+	height: 2.2em;
+}
+input.filterSearch:hover,
+input.filterSearch:focus,
+input.filterSearch:active {
+	border: 1px solid #ccc;
+	outline: 0px; 
+	-webkit-appearance: none;
+}
+select.filterSearch:focus,
+select.filterSearch:active {
+	outline: 0px; 
+}
+.filterButton {
+	display: inline-block;
+	padding: 4px;
+	margin: 8px 0 8px 10px;
+	min-width: 60px;
+	background: #ddd;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	transition: all 0.2s ease-in-out;
+}
+input.filterButton:active,
+input.filterButton:focus,
+input.filterButton:hover {
+	border: 1px solid #ccc;
+	background: #eee;
+	box-shadow: 1px 1px 3px 0 #eee;
+	outline: 0px; 
+	-webkit-appearance: none;
+}
+#projectsTable {
+	padding: 8px;
+}
+#projectTable {
+	font-size: 12px;
+	border: none;
+	border-spacing: 0;
+	margin-top: 8px;
+}
+#projectTable th {
+	font-size: 13px;
+	background: #ddd;
+	white-space: nowrap;
+}
+#projectTable tr:nth-of-type(even) {
+	background: #fff;
+}
+#projectTable tr:nth-of-type(odd) {
+	background: #eee;
+}
+#projectTable td {
+	overflow-x: auto;
+}
+#projectTable .nowrapDiv {
+	white-space: nowrap;
+}
+#projectTable .engineerCell {
+	min-width: 120px;
+}
+#projectTable .newCell {
+	box-shadow: 0 -1px 1px 0 rgba(255,255,200,1) inset;
+	background: rgba(255,240,240,0.75);
+}
+#projectTable.addRowDisp tr:nth-of-type(even) {
+	background: #eee;
+}
+#projectTable.addRowDisp tr:nth-of-type(odd) {
+	background: #fff;
+}
+#projectTable td div,
+#projectTable td input,
+#projectTable td a,
+#projectTable td select {
+	display: inline-block;
+	margin: 1px;
+	padding: 3px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+	border: 1px solid rgba(0,0,0,0.0);
+}
+#projectTable td input,
+#projectTable td select {
+	font-size: 11px;
+}
+#projectTable td textarea {
+	font-size: 12px;
+	width: 90%;
+}
+#projectTable td div.projectEditField{
+	min-width: 90%;
+	min-height: 1.2em;
+}
+#projectTable td select.projectEditField.newProjectValue,
+#projectTable td input.projectEditField.newProjectValue {
+	color: black;
+}
+#projectTable td input.projectEditField.SVN {
+	width: 60px;
+}
+textarea {
+	font-family: Source, Helvetica, sans-serif;
+}
+#projectTable td textarea.projectEditField {
+	width: 96%;
+	height: 96%;
+}
+#projectTable .col1{
+	min-width: 100px;
+}
+#projectTable .col2{
+	min-width: 132px;
+}
+#projectTable .col3{
+	min-width: 91px;
+}
+#projectTable .col5{
+	min-width: 264px;
+}
+#projectTable .col6{
+	min-width: 220px;
+}
+#projectTable .projectEditField {
+	transition: all 0.2s ease-in-out;
+}
+#projectTable .projectEditField:active,
+#projectTable .projectEditField:focus,
+#projectTable .projectEditField:hover {
+	border: 1px solid #ddd;
+}
+#projectTable .newProjectValue {
+	color: rgba(200,200,200,0.5);
+}
+#projectTable .newProjectValue:active,
+#projectTable .newProjectValue:focus,
+#projectTable .newProjectValue:hover {
+	color: rgba(100,100,100,0.8);
+}
+footer {
+	min-height: 135px;
+	margin: 4px;
+	padding: 8px;
+	border-radius: 15px;
+	border: solid 1px;
+	position: relative;
+}
+footer #links ul li{
+	font: 12px/14px Source, sans-serif;
+	color: rgba(70,70,70,0.8);
+	display: inline;
+	list-style-type: none;
+	text-indent: -5px;
+	margin: 0 3em;
+}
+footer a{
+	color: rgba(70,70,70,0.6);
+	text-decoration: none;
+	transition: all 0.1s ease-in-out;
+}
+footer a:hover {
+	color: rgba(70,70,70,1.0);
+}
+footer #links ul li:before {
+	content: "-";
+	position: relative;
+	left: -5px;
+}
+footer #legal{
+	position: absolute;
+	bottom: 0;
+}
+footer h1{
+	font: 16px/25px SourceBold, sans-serif;
+	color: rgba(80,80,80,0.8);
+	margin: 0.4em 0;
+}
+footer #legal p{
+	font: 12px/14px Anadada, serif;
+	color: rgba(120,120,120,0.8);
+	margin: 0.8em 0;
+}
+#footerspace {
+	width: 100%;
+	height: 1px;
+}

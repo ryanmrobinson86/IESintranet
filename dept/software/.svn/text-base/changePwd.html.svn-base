@@ -1,0 +1,11 @@
+<html>
+<body>
+	<form action="changePwd.php" method="post">
+		User Name: <input type="text" name="uName"><br/>
+		Old Password: <input type="password" name="oPwd"><br/>
+		New Password: <input type="password" name="pwd"><br/>
+		Re-Type New Password: <input type="password" name="cPwd">
+		<input type="submit">
+	</form>
+</body>
+</html>

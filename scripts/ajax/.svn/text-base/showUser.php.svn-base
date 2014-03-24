@@ -1,0 +1,163 @@
+<?php 
+$conn = pg_connect("host=localhost dbname=IES_Systems user=IESAdmin password=admin");
+@session_start();
+
+// begin Recordset
+$query = "SELECT * FROM users_usr WHERE level_usr>0 ORDER BY lname_usr ASC";
+$_SESSION['acct_update_refresh'] = $_SERVER['PHP_SELF'];
+$usersRs = pg_query($conn,$query);
+$userInfo = array();
+$i = 0;
+while($newUser = pg_fetch_assoc($usersRs)){
+  $userInfo[$i]['id_usr'] = $newUser['id_usr'];
+  $userInfo[$i]['usrname_usr'] = $newUser['usrname_usr'];
+  $userInfo[$i]['fname_usr'] = $newUser['fname_usr'];
+  $userInfo[$i]['lname_usr'] = $newUser['lname_usr'];
+  $userInfo[$i]['conum_usr'] = $newUser['conum_usr'];
+  $userInfo[$i]['pass_usr'] = $newUser['pass_usr'];
+  $userInfo[$i]['title_usr'] = $newUser['title_usr'];
+  $userInfo[$i]['dept_usr'] = $newUser['dept_usr'];
+  $userInfo[$i]['svn_usr'] = $newUser['svn_usr'];
+  $userInfo[$i]['email_usr'] = $newUser['email_usr'];
+  $userInfo[$i]['level_usr'] = $newUser['level_usr'];
+  $userInfo[$i++]['reports_to'] = $newUser['reports_to'];
+}
+// end Recordset
+
+if(isset($_GET['u'])){
+  foreach($userInfo as $user){
+    if($user['id_usr'] == $_GET['u']){
+      $dept_str;
+      $level_str;
+      $boss;
+
+      if($user['dept_usr'] == 1){
+        $dept_str = "Electrical";
+      } else if($user['dept_usr'] == 2){
+        $dept_str = "Mechanical";
+      } else if($user['dept_usr'] == 3){
+        $dept_str = "Logistics";
+      } else if($user['dept_usr'] == 4){
+        $dept_str = "Software";
+      } else {
+        $dept_str = "Manufacturing";
+      } 
+
+      if($user['level_usr'] == 1){
+        $level_str = "User";
+      } else {
+        $level_str = "Admin";
+      }
+
+      if($user['reports_to'] == $user['id_usr']){
+        $boss = "Self";
+      } else {
+        foreach($userInfo as $u){
+          if($u['id_usr'] == $user['reports_to']){
+            $boss = $u['fname_usr']." ".$u['lname_usr'];
+          }
+        }
+      }?>
+
+      <div id="editBox">
+        <span class="editButton" id="deleteButton" onclick="deleteUser(<?php echo $user['id_usr']; ?>)">Delete</span><span class="editButton" id="cancelButton" ></span>
+      </div>
+      <header>
+        <a href="#" class="noLink userValue header" id="fnameValue" onclick="aToInput(this,<?php echo $user['id_usr']; ?>)"><?php echo $user['fname_usr']; ?></a>
+        <a href="#" class="noLink userValue header" id="lnameValue" onclick="aToInput(this,<?php echo $user['id_usr']; ?>)"><?php echo $user['lname_usr']; ?></a>
+      </header>
+      <div class="userField">
+        <span class="userTitle">Employee Number: </span>
+        <a href="#" class="noLink userValue" id="coNumValue" onClick="aToInput(this,<?php echo $user['id_usr']; ?>)"><?php echo $user['conum_usr']; ?></a>
+      </div>
+      <div class="userField">
+        <span class="userTitle">Username: </span>
+        <a href="#" class="noLink userValue" id="usernameValue" onclick="aToInput(this,<?php echo $user['id_usr']; ?>)"><?php echo $user['usrname_usr']; ?></a>
+      </div>
+      <div class="userField">
+        <span class="userTitle">Password: </span>
+        <a href="#" class="noLink userValue" id="passwordValue" onclick="aToInput(this,<?php echo $user['id_usr']; ?>)"><?php echo $user['pass_usr']; ?></a>
+      </div>
+      <div class="userField">
+        <span class="userTitle">Title: </span>
+        <a href="#" class="noLink userValue" id="titleValue" onclick="aToInput(this,<?php echo $user['id_usr']; ?>)"><?php echo $user['title_usr']; ?></a>
+      </div>
+      <div class="userField">
+        <span class="userTitle">Department: </span>
+        <a href="#" class="noLink userValue" id="deptValue" onclick="aToDeptSelect(this,<?php echo $user['id_usr']; ?>)"><?php echo $dept_str; ?></a>
+      </div>
+      <div class="userField">
+        <span class="userTitle">SVN: </span>
+        <a href="#" class="noLink userValue" id="svnValue" onclick="aToInput(this,<?php echo $user['id_usr']; ?>)"><?php echo $user['svn_usr']; ?></a>
+      </div>
+      <div class="userField">
+        <span class="userTitle">Email: </span>
+        <a href="#" class="noLink userValue" id="emailValue" onclick="aToInput(this,<?php echo $user['id_usr']; ?>)"><?php echo $user['email_usr']; ?></a>
+      </div>
+      <div class="userField">
+        <span class="userTitle">Access Level: </span>
+        <a href="#" class="noLink userValue" id="levelValue" onclick="event.preventDefault(); aToLevelSelect(this,<?php echo $user['id_usr']; ?>)"><?php echo $level_str; ?></a>
+      </div>
+      <div class="userField">
+        <span class="userTitle">Supervisor: </span>
+        <span id="bossValue">
+          <span class="userValue" onclick="spanToBossSelect(this,<?php echo $user['id_usr']; ?>)"><?php echo $boss; ?></span>
+        </span>
+      </div>
+    <?php }
+  }
+} else {
+  unset($_SESSION['fname_usr']);
+  unset($_SESSION['lname_usr']);
+  unset($_SESSION['usrname_usr']);
+  unset($_SESSION['pass_usr']);
+  unset($_SESSION['title_usr']);
+  unset($_SESSION['dept_usr']);
+  unset($_SESSION['svn_usr']);
+  unset($_SESSION['email_usr']);
+  unset($_SESSION['reports_to']); ?>
+  <div id="editBox">
+    <span class="editButton" id="saveButton" onclick="saveNewUser()">Save</span>
+    <span class="editButton" id="cancelButton" onclick="hideUser()">Cancel</span>
+  </div>
+  <header>
+    <a href="#" class="noLink userValue header" id="fnameValue" onclick="aToInput(this)">First</a>
+    <a href="#" class="noLink userValue header" id="lnameValue" onclick="aToInput(this)">Last</a>
+  </header>
+  <div class="userField">
+    <span class="userTitle">Employee Number: </span>
+    <a href="#" class="userValue" id="coNumValue" onClick="aToInput(this)"></a>
+  </div>
+  <div class="userField">
+    <span class="userTitle">Username: </span>
+    <a href="#" class="userValue" id="usernameValue" onclick="aToInput(this)"></a>
+  </div>
+  <div class="userField">
+    <span class="userTitle">Password: </span>
+    <a href="#" class="userValue" id="passwordValue" onclick="aToInput(this)"></a>
+  </div>
+  <div class="userField">
+    <span class="userTitle">Title: </span>
+    <a href="#" class="userValue" id="titleValue" onclick="aToInput(this)"></a>
+  </div>
+  <div class="userField">
+    <span class="userTitle">Department: </span>
+    <a href="#" class="userValue" id="deptValue" onclick="aToDeptSelect(this)"></a>
+  </div>
+  <div class="userField">
+    <span class="userTitle">SVN: </span>
+    <a href="#" class="userValue" id="svnValue" onclick="aToInput(this)"></a>
+  </div>
+  <div class="userField">
+    <span class="userTitle">Email: </span>
+    <a href="#" class="userValue" id="emailValue" onclick="aToInput(this)"></a>
+  </div>
+  <div class="userField">
+    <span class="userTitle">Access Level: </span>
+    <a href="#" class="userValue" id="levelValue" onclick="aToLevelSelect(this)"></a>
+  </div>
+  <div class="userField">
+    <span class="userTitle">Supervisor: </span>
+    <span class="userValue" id="bossValue" onclick="aToBossSelect(this)"></span>
+  </div>
+<?php } ?>

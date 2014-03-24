@@ -1,0 +1,13 @@
+<section id="links">
+	<ul>
+		<li><a href="http://ies-us.com/">IES Site</a></li>
+		<li><a href="mailto:ryan.robinson@ies-us.com">Contact Webmaster</a></li>
+		<li><a href="http://tortoisesvn.net">Tortoise SVN</a></li>
+	</ul>
+</section>
+<section id="legal">
+	<h1>&copy2014 IES Systems Inc.</h1>
+	<p>This site is developed by IES Systems Inc. for the explicit use by Employees of IES Systems Inc. If you are not an 
+	employee of IES Systems Inc. please do not use this site for any purpose.</p>
+	<p>The information on this site is for informational purposes only.</p>
+</section>

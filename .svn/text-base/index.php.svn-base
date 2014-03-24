@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style/index.css">
+		<script src="scripts/main.js"></script>
+		<title>~~ ::IES::MAIN ~~</title>
+	</head>
+	<body onload="loadUser()">
+		<div class="span_12 row">
+		<div class="span_1 col spacer"></div>
+		<div id="wrapper" class="col span_10">
+			<header id="top">
+				<?php include "header.php"; ?>
+			</header>
+			<section id="sections" class="span_12 row">
+				<div class="span_4 col">
+				<section id="employeeList" class="thirds first">
+					<header>IES Employees</header>
+					<p>
+						118 - Anderson, Sally <br>
+						125 - Bellotta, Amy<br>
+						122 - Bishop, Aaron <br>
+						124 - Bishop, Russ <br>
+						102 - Brucoli, Mark<br>
+						129 - Chopra, Vishal<br>
+						120 - Conway, John<br>
+						121 - Fekety, Ron<br>
+						128 - Gerhardstein, Paul <br>
+						116 - Heck, Wayne<br>
+						108 - Johnson, Michelle<br>
+						103 - McAndrew, Rob<br>
+						105 - McKissack, Kelly<br>
+						127 - Marc Mitchell <br>
+						117 - Pasvanis, Tina <br>
+						112 - Robinson, Ryan <br>
+						119 - Rogenski, Mark<br>
+						123 - Sechler, Virginia<br>
+						107 - Shar, Kevin<br>
+						131 - Stacey, John<br>
+						101 - Thomas, Cindy<br>
+						126 - Wiencek, Craig<br>
+						106 - Wigal, Dave<br>
+						111 - Williamson, Jon<br>
+						104 - Yobi, Bill<br>
+						<br>
+						109 - Conference Room <br>
+						110 - Portable Phone <br>
+						113 - Lunch Room <br>
+						114 - Machine Shop<br>
+						132 - Shop #1<br>
+						137 - Shop #2<br>
+						<br>
+					Voice Mail:<br>
+					dial 165 # 6 * extension<br>
+					To Pick Up a Call: * 41ext or * 4001<br>
+					To Page: * 3301<br>
+					IES: 330-533-6683
+					</p>
+				</section></div>
+				<div class="span_4 col">
+				<section id="Qquest" class="thirds middle">
+					<header>Qquest Tasks</header>
+					<p>
+						210 Assembly<br>
+						211 Assembly Rework<br>
+						220 Wiring<br>
+						221 Wiring Rework<br>
+						230 Machining<br>
+						231 Machining Rework<br>
+						240 Welding<br>
+						241 Welding Rework
+					</p>
+					<p>
+						310 Electrical Design<br>
+						311 Electrical Testing<br>
+						312 Electrical BOM<br>
+						313 Electrical Redesign
+					</p>
+					<p>
+						320 Mechanical Design<br>
+						321 Mechanical Testing<br>
+						322 Mechanical BOM<br>
+						323 Mechanical Redesign
+					</p>
+					<p>
+						330 Software Design<br>
+						331 Software Testing
+					</p>
+					<p>
+						400 Packaging and Shipping<br>
+						410 Documentation
+					</p>
+					<p>
+						500 Sales<br>
+						505 Quoting<br>
+						506 Specification<br>
+						507 Design Review<br>
+						510 Customer Support<br>
+						520 Field Service Shop<br>
+						521 Field Service Engineering<br>
+						525 Travel Shop<br>
+						526 Travel Engineering
+					</p>
+					<p>
+						610 Office Overhead<br>
+						620 Shop Overhead<br>
+						630 Engineering Overhead<br>
+						640 Maintenance
+					</p>
+				</section></div>
+				<div class="span_4 col">
+				<section id="Projects" class="thirds last">
+					<header>Utilities</header>
+					<ul>
+						<!--<li><a href="#">Outlook Setup</a></li>-->
+						<li><a href="ref/KXT7720.pdf">Phone Instructions</a></li>
+					</ul>
+					<ul>
+						<li><a href="ref/employeeHandbook.pdf">Company Handbook</a></li>
+						<!--<li><a href="#">Early/Late Form</a></li>
+						<li><a href="#">Time Off Request</a></li>-->
+					</ul>
+				</section></div>
+			</section>
+			<footer>
+			    <?php include "footer.html"; ?>
+			</footer>
+			<div id="footerspace"></div>
+		</div>
+		</div>
+	</body>
+</html>
