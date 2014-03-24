@@ -13,7 +13,7 @@ Section 1: Admin Page
     - Log into the site as Admin user
     - Access Admin page and then log out, or log in as normal user.
 
-  Test: Adding user stores the new user to datbase
+  Test: Adding user stores the new user to database
     - Add a test user to the database
     - verify that it exists in the phppgadmin
 

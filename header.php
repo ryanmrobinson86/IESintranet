@@ -2,7 +2,10 @@
 <nav id="mainNav">
 	<ul>
 		<?php if(isset($_COOKIE['username']) && isset($_COOKIE['userLevel'])){ ?>
+			<li><a href="/dept/mechanical/">Mechanical</a></li>
+			<li><a href="/dept/electrical/">Electrical</a></li>
 			<li><a href="/dept/software/">Software</a></li>
+			<li><a href="/dept/logistics/">Logistics</a></li>
 			<?php if($_COOKIE['userLevel'] == 15){?>
 				<li><a href="/admin">Admin</a></li>
 			<?php }
